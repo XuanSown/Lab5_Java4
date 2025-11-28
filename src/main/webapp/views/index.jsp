@@ -17,7 +17,7 @@
         </c:if>
         
         <c:if test="${empty sessionScope.user}">
-            Bạn chưa đăng nhập. <a href="/login">Đăng nhập ngay</a>
+            Bạn chưa đăng nhập. <a href="${pageContext.request.contextPath}/login">Đăng nhập ngay</a>
         </c:if>
     </div>
 </body>

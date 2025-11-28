@@ -3,6 +3,7 @@ package dao.impl;
 import dao.UserDao;
 import entity.User;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import util.XJPA;
 
 public class UserDAOImpl implements UserDao {
@@ -35,6 +36,23 @@ public class UserDAOImpl implements UserDao {
 	public void delete(String id) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		// TODO Auto-generated method stub
+		EntityManager em = XJPA.getEntityManager();
+		try {
+			String jpql = "select u from User u where u.email :email";
+			TypedQuery<User> query = em.createQuery(jpql, User.class);
+			query.setParameter("email", email);
+			return query.getSingleResult();
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		} finally {
+			em.close();
+		}
 	}
 
 }

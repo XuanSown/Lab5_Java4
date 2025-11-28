@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.Objects;
 
 import dao.UserDao;
 import dao.impl.UserDAOImpl;
@@ -31,12 +30,12 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id = req.getParameter("id");
+		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 
 		try {
-			User user = dao.findById(id);
-			if (Objects.isNull(user)) {
+			User user = dao.findByEmail(email);
+			if (user == null) {
 				req.setAttribute("message", "Tài khoản không tồn tại");
 				req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 				return;
@@ -48,7 +47,8 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = req.getSession();
 				session.setAttribute("user", user);
 				req.setAttribute("message", "Đăng nhập thành công!");
-				resp.sendRedirect("/views/index");
+				resp.sendRedirect(req.getContextPath() + "/views/index");
+				return;
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
