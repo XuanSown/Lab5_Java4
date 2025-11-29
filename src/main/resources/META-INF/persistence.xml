@@ -5,6 +5,10 @@
                                  https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
 	version="3.0">
 	<persistence-unit name="Lab5">
+	<class>entity.User</class>
+    <class>entity.Visitor</class>
+    <class>entity.Log</class>
+	
 		<!-- Kết nối SQL Server -->
 		<properties>
 			<!-- JDBC -->

@@ -14,6 +14,13 @@ create table Visitors(
     VisitCount int not null
 )
 
+create table Logs(
+    Id int primary key identity(1,1),
+    Url nvarchar(max) not null,
+    Time datetime not null,
+    Username nvarchar(255) not null
+)
+
 INSERT INTO Users (Fullname, Email, Password) VALUES
 (N'Nguyễn Văn A', N'nguyenvana@example.com', N'Password@123'),
 (N'Trần Thị B', N'tranthib@example.com', N'Abc12345'),
@@ -22,6 +29,6 @@ INSERT INTO Users (Fullname, Email, Password) VALUES
 insert into Visitors(Id, Visitcount) values
 (1,0)
 
-
 select * from Users
 select * from Visitors
+select * from Logs
