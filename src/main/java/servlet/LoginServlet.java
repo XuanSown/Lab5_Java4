@@ -74,6 +74,5 @@ public class LoginServlet extends HttpServlet {
 			req.setAttribute("message", "Lỗi hệ thống: " + e.getMessage());
 			req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 		}
-		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 	}
 }

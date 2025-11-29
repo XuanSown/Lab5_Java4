@@ -22,5 +22,6 @@ INSERT INTO Users (Fullname, Email, Password) VALUES
 insert into Visitors(Id, Visitcount) values
 (1,0)
 
+
 select * from Users
 select * from Visitors

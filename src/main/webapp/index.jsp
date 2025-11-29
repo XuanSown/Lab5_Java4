@@ -12,6 +12,10 @@
         <h1>TRANG CHỦ</h1>
         <hr>
         
+        <div style="padding: 10px; margin-bottom: 20px;">
+        	<strong>Lượt truy cập: ${applicationScope.visitors}</strong>
+        </div>
+        
         <c:if test="${not empty sessionScope.user}">
             <h3>Xin chào: <span style="color: blue;">${sessionScope.user.fullName}</span></h3>
             <p>Email: ${sessionScope.user.email}</p>
