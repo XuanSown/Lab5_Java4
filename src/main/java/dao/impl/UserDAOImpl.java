@@ -43,7 +43,7 @@ public class UserDAOImpl implements UserDao {
 		// TODO Auto-generated method stub
 		EntityManager em = XJPA.getEntityManager();
 		try {
-			String jpql = "select u from User u where u.email :email";
+			String jpql = "select u from User u where u.email = :email";
 			TypedQuery<User> query = em.createQuery(jpql, User.class);
 			query.setParameter("email", email);
 			return query.getSingleResult();

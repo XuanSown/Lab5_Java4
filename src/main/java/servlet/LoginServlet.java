@@ -46,8 +46,9 @@ public class LoginServlet extends HttpServlet {
 			} else {
 				HttpSession session = req.getSession();
 				session.setAttribute("user", user);
-				req.setAttribute("message", "Đăng nhập thành công!");
-				resp.sendRedirect(req.getContextPath() + "/views/index");
+//				req.setAttribute("message", "Đăng nhập thành công!");
+//				resp.sendRedirect(req.getContextPath() + "/index");
+				req.getRequestDispatcher("/views/index.jsp").forward(req, resp);
 				return;
 			}
 		} catch (Exception e) {
