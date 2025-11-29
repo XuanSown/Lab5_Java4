@@ -43,7 +43,7 @@ public class CounterListener implements ServletContextListener, HttpSessionListe
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		ServletContext application = sce.getServletContext();
-		Integer count = (Integer) application.getAttribute("visitor");
+		Integer count = (Integer) application.getAttribute("visitors");
 		if (count == null) {
 			count = 0;
 		}
